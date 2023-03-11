@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
         }
     </style>
 </head>
+
 <body>
     <canvas>
     </canvas>
@@ -20,9 +22,9 @@
     <script>
         const canvasEl = document.querySelector("canvas"),
             canvasCtx = canvasEl.getContext("2d")
-        
+
         const lineWidth = 15
-            
+
         function setup() {
             canvasEl.width = canvasCtx.width = window.innerWidth
             canvasEl.height = canvasCtx.height = window.innerHeight
@@ -30,11 +32,11 @@
         function draw() {
             // desenhando campo
             canvasCtx.fillStyle = "#286047"
-            canvasCtx.fillRect(0,0, window.innerWidth, window.innerHeight)
-        
+            canvasCtx.fillRect(0, 0, window.innerWidth, window.innerHeight)
+
             //desenhando linha no meio do campo
             canvasCtx.fillStyle = "#FFFFFF"
-            const x  = window.innerWidth / 2 - lineWidth / 2
+            const x = window.innerWidth / 2 - lineWidth / 2
             const y = 0
             const largura = lineWidth
             const altura = window.innerHeight
@@ -42,32 +44,34 @@
 
             // desenha a raquete esquerda
             canvasCtx.fillRect(
-                10, 
-                100, 
-                lineWidth, 
+                10,
+                100,
+                lineWidth,
                 200)
 
             //desenha a raquete direita
             canvasCtx.fillRect(
-                window.innerWidth - lineWidth - 10, 
-                400, 
+                window.innerWidth - lineWidth - 10,
+                400,
                 lineWidth,
                 200)
 
-            //desenhando bolinha
+            // desenha a bolinha
             canvasCtx.beginPath()
-            canvasCtx.arc(200, 300, 20, 0,2 * Math.PI, false)
-            cavnasCtx.fill()
+            canvasCtx.arc(500, 300, 20, 0, 2 * Math.PI, false)
+            canvasCtx.fill()
 
-            // desenhando a fonte
-            canvasCtx.font = "bold 72px Arial"
+            // desenhando placar
+            canvasCtx.font = "bold 72px arial"
             canvasCtx.textAlign = "center"
             canvasCtx.textBaseline = "top"
             canvasCtx.fillStyle = "#01341D"
-            canvasCtx.fillText('3', window.innerHeight / 4, 50)
+            canvasCtx.fillText("2", window.innerWidth / 4, 50)
+            canvasCtx.fillText("0", window.innerWidth / 4 + window.innerWidth / 2, 50)
         }
         setup()
         draw()
     </script>
 </body>
+
 </html>
